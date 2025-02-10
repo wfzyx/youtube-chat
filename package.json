@@ -1,8 +1,8 @@
 {
   "name": "youtube-chat",
   "version": "2.2.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "repository": "https://github.com/LinaTsukusu/youtube-chat.git",
   "author": "LinaTsukusu <lina.tsukusu@gmail.com>",
   "license": "MIT",
