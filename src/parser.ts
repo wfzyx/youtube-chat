@@ -22,8 +22,9 @@ export function getOptionsFromLivePage(
 		liveId = idResult[1];
 	} else {
 		// Find the start of the target JSON-like object
+
 		const startIndex = data.indexOf(
-			'{ "status": "INDIFFERENT", "target": { "videoId": "',
+			'{"status":"INDIFFERENT","target":{"videoId":"',
 		);
 
 		if (startIndex === -1) {
@@ -33,12 +34,11 @@ export function getOptionsFromLivePage(
 		const substring = data.slice(startIndex, startIndex + 200); // Arbitrary length to capture the JSON
 
 		// Find where the videoId starts and ends
-		const videoIdStart = substring.indexOf('"videoId": "') + 12; // Move past `"videoId": "`
+		const videoIdStart = substring.indexOf('"videoId":"') + 11; // Move past `"videoId": "`
 		const videoIdEnd = substring.indexOf('"', videoIdStart); // Find the closing quote
 
 		if (videoIdStart !== -1 && videoIdEnd !== -1) {
 			liveId = substring.slice(videoIdStart, videoIdEnd);
-			console.log("AAAAAAAA", liveId);
 		} else {
 			throw new Error("Live Stream was not found");
 		}
